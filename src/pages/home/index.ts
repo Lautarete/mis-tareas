@@ -19,10 +19,18 @@ export function initHomePage(rootEl: HTMLElement) {
     <section class="cards-section"></section>
     `;
 
+  //agregar estilos a cards sectionn
+
   const cardsSection = homePageEl.querySelector(".cards-section");
+
   function renderTasks(tasks) {
     cardsSection!["innerHTML"] = "";
     for (const cardItem of tasks) {
+      const cardContainer = document.createElement("div");
+      cardContainer.style.maxWidth = "316px";
+      cardContainer.style.minWidth = "290px";
+      cardContainer.style.width = "100%";
+      cardContainer.style.flexGrow = "1";
       const card = document.createElement("todo-card");
       card.textContent = cardItem.text;
       card.setAttribute("checked", `${cardItem.checked}`);
@@ -34,7 +42,8 @@ export function initHomePage(rootEl: HTMLElement) {
         state.changeItemState(e.detail.id, e.detail.value, "delete");
       });
 
-      cardsSection!.appendChild(card);
+      cardContainer.appendChild(card);
+      cardsSection!.appendChild(cardContainer);
     }
   }
 
