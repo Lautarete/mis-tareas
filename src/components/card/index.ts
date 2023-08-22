@@ -35,7 +35,8 @@ export function initCardComponent() {
         }
         .card-text {
           margin: 0;
-          max-width: 250px;
+          /*max-width: 250px;*/
+          max-width: 86%;
           font-family: "Roboto", sans-serif;
           font-size: 18px;
           font-style: normal;
