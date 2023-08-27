@@ -14,7 +14,11 @@ const state = {
   },
   getEnabledTasks() {
     const lastState = this.getState();
-    return lastState.tasks.filter((t) => !t.deleted);
+    if (lastState && lastState.tasks) {
+      return lastState.tasks.filter((t) => !t.deleted);
+    } else {
+      return [];
+    }
   },
   addTask(id: string, text: string) {
     const lastState = this.getState();
@@ -58,7 +62,7 @@ const state = {
           },
         ],
       });
-      console.log(this.data);
+      // console.log(this.data);
     }
   },
 };
